@@ -1,22 +1,7 @@
-# blog2
+# 基于nuxt-express-ssr搭建的博客
 
-> My groundbreaking Nuxt.js project
+> 我的一次nuxt练手项目
 
-## Build Setup
+## 起步
 
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+正在开发中……
