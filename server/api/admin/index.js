@@ -1,11 +1,8 @@
 const { Router } = require('express')
 const router = Router()
 
-// 后台
-const admin = require('./admin')
-router.use('/admin',admin)
+const user = require('./user')
 
-// 前台
-
+router.use('/user',user)
 
 module.exports = router

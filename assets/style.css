@@ -1,0 +1,69 @@
+html,
+body,
+#__nuxt,
+#__layout,
+#__layout > div {
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  display: inline-block;
+}
+
+.br5{
+  border-radius: 5px
+}
+
+.br30{
+  border-radius: 30px;
+}
+
+.btn{
+  border:none;
+  outline: none;
+  height: 27px;
+  line-height: 27px;
+  width: 100%;
+  background: #409EFF;
+  color:#fff;
+  text-align: center;
+  cursor: pointer;
+}
+.btn:hover{
+  opacity: .8;
+}
+.btn:active{
+  opacity: .9;
+}
