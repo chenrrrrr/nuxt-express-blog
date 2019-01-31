@@ -7,7 +7,7 @@
 export default {
   data () {
     return {
-      yiyan: ''
+      yiyan: '「'
     };
   },
   mounted() {
@@ -29,10 +29,14 @@ export default {
           this.yiyan += print[i]
           i++
         }else{
+          this.yiyan += '」'
           clearInterval(timer)
         }
-      },200)
+      },this.speed)
     } 
+  },
+  props:{
+    speed:String
   }
 }
 </script>

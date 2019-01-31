@@ -4,8 +4,8 @@ const router = Router()
 router.post('/login',(req,res,next)=>{
   res.json({
     code:0,
-    msg:'登陆成功',
-    errMsg:''
+    data:null,
+    msg:'登陆成功'
   })
 })
 

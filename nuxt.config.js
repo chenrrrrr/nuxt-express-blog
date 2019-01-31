@@ -30,7 +30,7 @@ module.exports = {
   css: [
     // 'element-ui/lib/theme-chalk/index.css',
     '@/assets/style.css',
-    'font-awesome/css/font-awesome.min.css'
+    'font-awesome/css/font-awesome.min.css',
   ],
 
   /*
@@ -46,6 +46,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
   /*
   ** Axios module configuration
@@ -55,8 +56,9 @@ module.exports = {
   },
 
   proxy: {
-    '^/api':{
-      target: 'http://127.0.0.1:3000/api',
+    '/api': {
+      target: 'http://localhost:3000', // api主机地址
+      // pathRewrite: { '^/api': '/' }
     }
   },
 

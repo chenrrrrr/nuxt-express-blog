@@ -18,15 +18,15 @@ export default {
       ],
     }
   },
-  async asyncData({app}){
-    let bing = await app.$axios.get('http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
-    return { bing: `http://s.cn.bing.net${bing.data.images[0].url}` }
+  mounted(){
+    this.getBing()
   },
   data() {
     return {
       html_title:'后台 - 登入',
       vm_username: '',
       vm_password: '',
+      bing:'',
     };
   },
   components:{
@@ -39,10 +39,14 @@ export default {
       }
     },
     async handleLogin(){
-      let res = await this.$axios.post('/api/admin/user/login',{username:this.vm_username,password:this.vm_password})
+      let res = await axios.post('/api/admin/user/login',{username:this.vm_username,password:this.vm_password})
       if(res.data.code === 0){
-        console.log(1)
+        this.$router.replace('/admin')
       }
+    },
+    async getBing(){
+      let bing = await this.$axios.get('/api/admin/util/bing')
+      this.bing = bing.data
     }
   }
 };

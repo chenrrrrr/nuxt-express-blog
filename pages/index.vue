@@ -3,10 +3,6 @@
     <div class="widgets">
       <!-- 搜索 -->
       <v-input v-model="vm_s_val" placeholder="检索" type="text" width="100%" icon="fa fa-search"></v-input>
-      <!-- 一言 -->
-      <!-- <section class="yiyan">
-        <v-yiyan></v-yiyan>
-      </section> -->
       <!-- 标签云 -->
       <ul class="tagcloud clearfix">
         <li v-for="(item,index) in vm_tags_list" :key="index">
@@ -15,6 +11,10 @@
       </ul>
     </div>
     <div class="main">
+      <!-- 一言 -->
+      <section class="yiyan">
+        <v-yiyan speed="100"></v-yiyan>
+      </section>
       <ul class="article-list">
         <li v-for="(item,index) in vm_article_list" :key="index">
             <nuxt-link :to="'/article/'+item.articleId">
@@ -44,6 +44,11 @@
             </section>
         </li>
       </ul>
+      <!-- 分页 -->
+      <section class="page">
+        <i class="fa fa-caret-up"></i>
+        <i class="fa fa-caret-down"></i>
+      </section>
     </div>
     <div class="aside">
       <!-- 头像区 -->
@@ -55,6 +60,13 @@
             <i class="fa fa-map-marker"></i><span>Nanjing</span>
           </p>
         </section>
+        <ul>
+          <li><a><i class="fa fa-github"></i></a></li>
+          <li><a><i class="fa fa-envelope"></i></a></li>
+          <li><a><i class="fa fa-wechat"></i></a></li>
+          <li><a><i class="fa fa-qq"></i></a></li>
+          <li><a href="/login"><i class="fa fa-key"></i></a></li>
+        </ul>
       </header>
       <!-- 分类 -->
       <ul class="category">
@@ -142,8 +154,35 @@ export default {
   display: flex;
   height: 100%;
   .main{
+    position: relative;
     width: 70%;
     padding: 10px 20px;
+    .page{
+      position: absolute;
+      height: 50px;
+      margin-top: -25px;
+      top: 50%;
+      right: 5px;
+      display: flex;
+      flex-direction: column;
+      font-size: 22px;
+      color:#333;
+      i:hover{
+        cursor: pointer;
+        opacity: .8;
+      }
+      i:active{
+        opacity: .9;
+      }
+    }
+    .yiyan{
+      display: flex;
+      justify-content: flex-end;
+      div{
+        color:#777777;
+        font-size: 12px;
+      }
+    }
     .article-list{
       li{
         padding-bottom: 10px;
@@ -179,10 +218,13 @@ export default {
     flex: 1;
     background: #fbfbfb;
     padding: 0 10px;
+    position: relative;
   }
   .aside{
+    padding: 0;
     border-left:1px solid #f6f6f6;
     header{
+      padding: 10px;
       .author{
         p{
           padding-top: 10px;
@@ -206,17 +248,39 @@ export default {
           }
         }
       }
+      ul{
+        display: flex;
+        justify-content: space-between;
+        li{
+          padding-right: 10px;
+          a{
+            color: #333;
+            width: 100%;
+            i{
+              cursor: pointer;
+            }
+          }
+        }
+        li:hover{
+          cursor: pointer;
+          opacity: .8;
+        }
+        li:active{
+          opacity: .9;
+        }
+      }
     }
     .category{
       padding: 10px 0;
       li{
-        transition: all .25s;
         line-height: 1.75;
         font-size: 14px;
         display: flex;
         align-items: center;
         padding: 6px 2px;
         a{
+          padding-left: 10px;  
+          width: 100%;
           color:#555555;
           span{
             padding-left: 20px;
@@ -226,29 +290,16 @@ export default {
       }
       li:hover{
         cursor: pointer;
-        opacity: .5;
+        background: #eeeeee;
       }
       .li-active{
-        transform: translateX(-50px);
-        border-radius: 30px 0 0 30px;
-        padding-left: 15px;  
-        background: #5ebdea;
-        box-shadow: 0 1px 10px rgba(0,0,0,.1);
-        a{
-          color:#fff;
-        }
+        background: #f4f4f4;
       }
     }
   }
   .widgets{
     padding-top: 10px;
     border-right:1px solid #f6f6f6;
-    .yiyan{
-      color:#777777;
-      div{
-        font-size: 14px;
-      }
-    }
     .tagcloud{
       padding-top: 10px;
       li{
